@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "694e48ee-2603-47c8-b06e-884e7f60460f",
+		"name": "Payment Sample",
+		"description": "# Introduction\nPayment Service with notification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Credit Card",
+			"item": [
+				{
+					"name": "List of all Credit Cards",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/credit-cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"credit-cards"
+							]
+						},
+						"description": "Get all credit cards"
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/credit-cards",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"credit-cards"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": \"ca47bab5-b387-4710-8f68-41c419bba1bd\",\n            \"number\": \"1234-5555-6996-9992\",\n            \"expiryDate\": \"99/12\",\n            \"creditAmount\": 100,\n            \"createdDate\": \"1399/09/16 10:04:54\",\n            \"updatedDate\": \"1399/09/16 10:04:54\",\n            \"bank\": \"SAMAN\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"unsorted\": true,\n            \"sorted\": false,\n            \"empty\": true\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"last\": true,\n    \"numberOfElements\": 1,\n    \"sort\": {\n        \"unsorted\": true,\n        \"sorted\": false,\n        \"empty\": true\n    },\n    \"number\": 0,\n    \"size\": 20,\n    \"first\": true,\n    \"empty\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Create (Add) a Credit Card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"number\": \"1234-5555-6996-9992\",\n    \"expiryDate\": \"99/12\",\n    \"creditAmount\": 100,\n    \"cvv2\": \"123\",\n    \"password\": \"abcd\",\n    \"bank\": \"SAMAN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/credit-cards",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"credit-cards"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create (Add) a Credit Card",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"number\": \"1234-5555-6996-9992\",\n    \"expiryDate\": \"99/12\",\n    \"creditAmount\": 100,\n    \"cvv2\": \"123\",\n    \"password\": \"abcd\",\n    \"bank\": \"SAMAN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/credit-cards",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"credit-cards"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Dec 2020 06:34:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ca47bab5-b387-4710-8f68-41c419bba1bd\",\n    \"number\": \"1234-5555-6996-9992\",\n    \"expiryDate\": \"99/12\",\n    \"creditAmount\": 100,\n    \"createdDate\": \"1399/09/16 10:04:54\",\n    \"updatedDate\": \"1399/09/16 10:04:54\",\n    \"bank\": \"SAMAN\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove (Disable) a Card",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/credit-cards/{{credit_card_id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"credit-cards",
+								"{{credit_card_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Remove (Disable) a Card",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/credit-cards/{{credit_card_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"credit-cards",
+										"{{credit_card_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Dec 2020 06:48:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Transfer Credit to another Card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceCardNumber\": \"1234-5555-6996-9992\",\n    \"sourceCardExpiryDate\": \"99/12\",\n    \"sourceCardCvv2\": \"123\",\n    \"sourceCardPassword\": \"abcd\",\n    \"targetCardNumber\": \"1234-5555-6996-9993\",\n    \"amount\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/credit-cards/transfer",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"credit-cards",
+								"transfer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Transfer Credit to another Card",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sourceCardNumber\": \"1234-5555-6996-9992\",\n    \"sourceCardExpiryDate\": \"99/12\",\n    \"sourceCardCvv2\": \"123\",\n    \"sourceCardPassword\": \"abcd\",\n    \"targetCardNumber\": \"1234-5555-6996-9993\",\n    \"amount\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/credit-cards/transfer",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"credit-cards",
+										"transfer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Dec 2020 06:41:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "All Operation related to Credit cards",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9e609a55-de75-464e-9d14-ac9ffadea01d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e175ea98-a0ff-41cc-9b22-af848c1b6e9f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Credit Transfer",
+			"item": [
+				{
+					"name": "Search Credit Transfers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sourceCardNumber\": \"1234-5555-6996-9993\",\n    \"sourceCardExpiryDate\": \"99/12\",\n    \"sourceCardCvv2\": \"123\",\n    \"sourceCardPassword\": \"abcd\",\n    \"targetCardNumber\": \"1234-5555-6996-9993\",\n    \"amount\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/credit-transfers?fromDate=99/09/16&toDate=99/12/01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"credit-transfers"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "99/09/16"
+								},
+								{
+									"key": "toDate",
+									"value": "99/12/01"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Credit Transfers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"sourceCardNumber\": \"1234-5555-6996-9993\",\n    \"sourceCardExpiryDate\": \"99/12\",\n    \"sourceCardCvv2\": \"123\",\n    \"sourceCardPassword\": \"abcd\",\n    \"targetCardNumber\": \"1234-5555-6996-9993\",\n    \"amount\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/credit-transfers?fromDate=99/09/16&toDate=99/12/01",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"credit-transfers"
+									],
+									"query": [
+										{
+											"key": "fromDate",
+											"value": "99/09/16"
+										},
+										{
+											"key": "toDate",
+											"value": "99/12/01"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Dec 2020 08:29:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": \"42c7abc1-3cd8-49e2-b8ad-0c786066eb9f\",\n            \"cardNumber\": \"1234-5555-6996-9992\",\n            \"failed\": 0,\n            \"completed\": 2,\n            \"transferDate\": \"1399/09/16\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"sorted\": false,\n            \"unsorted\": true,\n            \"empty\": true\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 1,\n    \"numberOfElements\": 1,\n    \"number\": 0,\n    \"sort\": {\n        \"sorted\": false,\n        \"unsorted\": true,\n        \"empty\": true\n    },\n    \"size\": 20,\n    \"first\": true,\n    \"empty\": false\n}"
+						}
+					]
+				}
+			],
+			"description": "History of transfer transactions",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
