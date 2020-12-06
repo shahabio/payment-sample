@@ -16,6 +16,11 @@ public class NotificationEventHandler {
     this.notificationSmsProviderService = notificationSmsProviderService;
   }
 
+  /**
+ * <pre>
+ * Handles incoming notification requests from kafka topic (eg. sms)
+ * </pre>
+ */
   @Bean
   public Consumer<NotificationEvent> notification() {
     return event -> notificationSmsProviderService.sendSms(
