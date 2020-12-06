@@ -13,6 +13,13 @@ For running the services you can just do:
 
 
 [Online Api Docs](https://documenter.getpostman.com/view/5090057/TVmQdb9G)
-
-
+<br />
+<br />
+<br />
 Regards.
+
+<br />
+<br />
+TODO:
+
+- [ ] Add unit and integration Tests for APIs
