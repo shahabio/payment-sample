@@ -22,6 +22,11 @@ public class NotificationSmsProviderService {
     this.webClient = WebClient.builder().baseUrl(providerUrl).build();
   }
 
+  /**
+  * Send SMS to provider,
+  * should using queue mechanism and so... 
+  * but for sake of simplicity just using reactive api with maxmimum 3 reply in case of failure.
+  */
   public void sendSms(SmsNotificationRequestDto requestDto) {
     log.info("Sending SMS Notification-> target: {}, msg: {}", requestDto.getTarget(), requestDto.getMsg());
 
