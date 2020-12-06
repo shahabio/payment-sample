@@ -1,0 +1,20 @@
+spring:
+  main:
+    web-application-type: none
+
+service:
+  providers:
+    sms-provider-url: https://run.mocky.io/v3/3016926a-a488-444c-ba35-d5cab2f423ec
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: kafka

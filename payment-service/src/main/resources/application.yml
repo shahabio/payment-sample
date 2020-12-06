@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/payment_service
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  jackson:
+    default-property-inclusion: non_empty
+
+service:
+  api: /api
+  bank-provider-url: https://run.mocky.io/v3/3016926a-a488-444c-ba35-d5cab2f423ec
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: jdbc:postgresql://db/payment_service
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: kafka
