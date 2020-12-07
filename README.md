@@ -1,6 +1,6 @@
 # Payment Sample with notification
 
-Note: all the reqiured images including payment-service and notification-service was pushed to docker hub repository
+Note: all the required images including payment-service and notification-service was pushed to docker hub repository
 
 For running the services you can just do:
 ```bash
